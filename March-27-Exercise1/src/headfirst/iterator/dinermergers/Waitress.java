@@ -5,11 +5,12 @@ import java.util.LinkedList;
 
 public class Waitress {
 
+  private ArrayList<Menu> menus;
   private PancakeHouseMenu pancakeHouseMenu;
   private DinerMenu dinerMenu;
   private VesuvioMenu vesuvioMenu;
 
-  public Waitress(PancakeHouseMenu pancakeHouseMenu, DinerMenu dinerMenu, VesuvioMenu vesuvioMenu) {
+  public Waitress(ArrayList<Menu> menus) { //pancakeHouseMenu, DinerMenu dinerMenu, VesuvioMenu vesuvioMenu
     this.pancakeHouseMenu = pancakeHouseMenu;
     this.dinerMenu = dinerMenu;
     this.vesuvioMenu = vesuvioMenu;

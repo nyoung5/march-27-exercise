@@ -1,18 +1,19 @@
 package headfirst.iterator.dinermergeri;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
+
 
 public class Waitress {
-  private Menu dinerMenu;
 
-  private Menu pancakeHouseMenu;
+  private List<Menu> menus;
 
-  public Waitress(Menu pancakeHouseMenu, Menu dinerMenu) {
-    this.pancakeHouseMenu = pancakeHouseMenu;
-    this.dinerMenu = dinerMenu;
+  public Waitress(List<Menu> menus) {//Menu pancakeHouseMenu, Menu dinerMenu) {
+    this.menus = menus;
   }
 
-  public boolean isItemVegetarian(String name) {
+ /* public boolean isItemVegetarian(String name) {
     Iterator pancakeIterator = pancakeHouseMenu.createIterator();
     if (isVegetarian(name, pancakeIterator)) {
       return true;
@@ -23,23 +24,19 @@ public class Waitress {
     }
     return false;
   }
-
+*/
   public void printMenu() {
-    Iterator<MenuItem> pancakeIterator = pancakeHouseMenu.createIterator();
-    Iterator<MenuItem> dinerIterator = dinerMenu.createIterator();
-
-    System.out.println("MENU\n----\nBREAKFAST");
-    printMenu(pancakeIterator);
-    System.out.println("\nLUNCH");
-    printMenu(dinerIterator);
+    for (Menu menu : menus) {
+    	  printMenu(menu.createIterator());
+    }
   }
 
-  public void printVegetarianMenu() {
-    System.out.println("\nVEGETARIAN MENU\n----\nBREAKFAST");
-    printVegetarianMenu(pancakeHouseMenu.createIterator());
-    System.out.println("\nLUNCH");
-    printVegetarianMenu(dinerMenu.createIterator());
-  }
+//  public void printVegetarianMenu() {
+//    System.out.println("\nVEGETARIAN MENU\n----\nBREAKFAST");
+//    printVegetarianMenu(pancakeHouseMenu.createIterator());
+//    System.out.println("\nLUNCH");
+//    printVegetarianMenu(dinerMenu.createIterator());
+//  }
 
   private boolean isVegetarian(String name, Iterator<MenuItem> iterator) {
     while (iterator.hasNext()) {
@@ -60,6 +57,7 @@ public class Waitress {
       System.out.print(menuItem.getPrice() + " -- ");
       System.out.println(menuItem.getDescription());
     }
+    System.out.println("End of menu!");
   }
 
   private void printVegetarianMenu(Iterator<MenuItem> iterator) {
